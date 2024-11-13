@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from users.models import Transaction, Users, Cards
+from users.models.models import Transaction, Users, Cards
 
 
 class TransactionSerializer(serializers.ModelSerializer):

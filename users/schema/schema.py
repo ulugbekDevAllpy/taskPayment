@@ -1,8 +1,6 @@
-from tkinter import Listbox
-
 import graphene
 from graphene_django.types import DjangoObjectType
-from users.models import Users, Cards, Merchant, Transaction, MerchantCategory
+from users.models.models import Users, Cards, Merchant, Transaction, MerchantCategory
 
 
 class UserType(DjangoObjectType):

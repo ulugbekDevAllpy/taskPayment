@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from users.models import Users, Cards, MerchantCategory, Merchant
+from users.models.models import Users, Cards, MerchantCategory, Merchant
 from users.serializers.CardsSerializer import CardsSerializer, CreateCardSerializer
 from users.serializers.MerchantCategorySerializer import MerchantCategorySerializer
 from users.serializers.MerchantSerializer import MerchantSerializer

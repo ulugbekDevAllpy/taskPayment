@@ -1,7 +1,6 @@
 from rest_framework import serializers
 
-from users.models import Merchant, MerchantCategory
-from users.serializers.MerchantCategorySerializer import MerchantCategorySerializer
+from users.models.models import Merchant, MerchantCategory
 
 
 class MerchantSerializer(serializers.ModelSerializer):

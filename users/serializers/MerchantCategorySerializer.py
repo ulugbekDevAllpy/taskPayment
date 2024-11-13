@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from users.models import MerchantCategory, Merchant, Transaction
+from users.models.models import MerchantCategory
+
 
 class MerchantCategorySerializer(serializers.ModelSerializer):
     class Meta:
