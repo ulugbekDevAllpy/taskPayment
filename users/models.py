@@ -70,7 +70,7 @@ class Transaction(models.Model):
     device_id = models.CharField(max_length=100)
     card_id = models.ForeignKey(Cards, on_delete=models.SET_NULL, null=True, blank=True)
     status = models.CharField(max_length=20, choices=[('success', 'Success'), ('failed', 'Failed')])
-    created_at = models.DateTimeField(auto_now_add=True)  # Transaction yaratish vaqti
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Transaction {self.id} - {self.status}"

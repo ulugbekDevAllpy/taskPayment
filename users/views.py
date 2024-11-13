@@ -22,7 +22,7 @@ class PhoneVerificationView(APIView):
             phone_number = serializer.validated_data['phone_number']
 
 
-            user, created = Users.objects.get_or_create(phone_number=phone_number)
+            # user, created = Users.objects.get_or_create(phone_number=phone_number)
 
 
 
