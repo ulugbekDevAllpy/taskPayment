@@ -1,3 +1,5 @@
+from tkinter import Listbox
+
 import graphene
 from graphene_django.types import DjangoObjectType
 from users.models import Users, Cards, Merchant, Transaction, MerchantCategory
@@ -35,6 +37,8 @@ class TransactionType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     users = graphene.List(UserType)
+    merchant_categories=graphene.List(MerchantCategoryType)
+    merchants=graphene.List(MerchantType)
     user = graphene.Field(UserType, user_id=graphene.String())
     transactions = graphene.List(TransactionType)
     transaction = graphene.Field(TransactionType, transaction_id=graphene.Int())
@@ -45,6 +49,11 @@ class Query(graphene.ObjectType):
 
 
 
+    def resolve_merchant_categories(self,info):
+        return  MerchantCategory.objects.all()
+
+    def resolve_merchants(self, info):
+        return Merchant.objects.all()
 
     def resolve_user(self, info, user_id):
         return Users.objects.get(user_id=user_id)

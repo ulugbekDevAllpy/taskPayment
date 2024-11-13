@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'users',
     'graphene_django',
+    'django_ratelimit'
 ]
 
 SIMPLE_JWT = {
@@ -59,6 +60,14 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',
+        'rest_framework.throttling.AnonymousRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '15/m',
+        'anon': '5/m',
+    },
 }
 
 MIDDLEWARE = [
@@ -69,8 +78,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_ratelimit.middleware.RateLimitMiddleware'
 ]
-
+RATELIMIT = {
+    'default': '15/m',
+}
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
