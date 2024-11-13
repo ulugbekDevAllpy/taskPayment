@@ -35,7 +35,7 @@ class TransactionType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     users = graphene.List(UserType)
-    user = graphene.Field(UserType, user_id=graphene.UUID())
+    user = graphene.Field(UserType, user_id=graphene.String())
     transactions = graphene.List(TransactionType)
     transaction = graphene.Field(TransactionType, transaction_id=graphene.Int())
 
